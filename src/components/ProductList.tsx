@@ -25,12 +25,9 @@ const ProductList: FC = () => {
     const navigate = useNavigate();
     const [sortValue, setSortValue] = useState('name');
     const [page, setPage] = useState(1);
+    const [pages, setPages] = useState(0);
     const [filter, setFilter] = useState<defaultFilterTypes>(defaultFilter);
     const pageSize = 15;
-
-    const amountPages = () => {
-        return Math.ceil(initProducts.length / pageSize)
-    };
 
     useEffect(() => {
         fetchProducts()
@@ -41,6 +38,13 @@ const ProductList: FC = () => {
 
         // todo:это фильтрация
         console.log(filter)
+
+        if (filter.type) {
+            products_ = products_.filter(product => product.type.includes(filter.type))
+        }
+
+        let pages_ = Math.ceil(products_.length / pageSize)
+
         // это сортировка
         let isReverse = sortValue.includes('-');
         let value = sortValue.replace('-', '');
@@ -61,6 +65,7 @@ const ProductList: FC = () => {
         products_ = products_.slice(start, end)
 
         setProducts(products_)
+        setPages(pages_)
     }
 
     return (
@@ -130,7 +135,7 @@ const ProductList: FC = () => {
                     <Pagination
                         page={page}
                         changePage={setPage}
-                        amountPages={amountPages()}/>
+                        amountPages={pages}/>
                     <div className="text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum ut justo, vestibulum
                         sagittis iaculis iaculis. Quis mattis vulputate feugiat massa vestibulum duis. Faucibus

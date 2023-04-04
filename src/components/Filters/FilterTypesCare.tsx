@@ -30,6 +30,7 @@ const FilterTypesCare: FC<PropsWithChildren<Filter>> = ({filter,setFilter}) => {
                     <span
                         onClick={() => setFilter({...filter, type: typekey})}
                         key={typekey}
+                        style={{cursor:'pointer'}}
                     >
                         {Typescare[typekey]}
                     </span>

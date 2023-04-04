@@ -14,7 +14,8 @@ const FilterBrand = () => {
     async function fetchBrands() {
         let brands_ = initProducts.map((product) => product.manufacturer)
         brands_ = [...new Set(brands_)]
-        // todo: поиск по брендам (searchQuery/.filter/проверка совпадений в строке)
+        brands_ = brands_.filter(brand => brand.toLowerCase().includes(searchQuery.toLowerCase()))
+
         setBrands(brands_)
     }
 
@@ -33,7 +34,7 @@ const FilterBrand = () => {
             <List
                 items={brands}
                 renderItem={(brand: string) =>
-                    <div>
+                    <div className='filter_manuf_checkbox'>
                         <input
                             type='checkbox'
                             name={brand}

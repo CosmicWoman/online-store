@@ -19,8 +19,10 @@ const Pagination: FC<PropsWithChildren<PaginationProps>> = ({amountPages, page, 
     let pageArray = getPageArray(amountPages)
 
     return (
-        <div className='pages'>
-            <button className="page_back"></button>
+        <div className={amountPages > 1 ? 'pages' : 'pages_none'}>
+            <button
+                className="page_back"
+            ></button>
             {pageArray.map(p =>
                 <span
                     onClick={() => changePage(p)}
