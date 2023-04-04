@@ -9,14 +9,14 @@ interface ProductItemProps {
 
 const ProductItem: FC<PropsWithChildren<ProductItemProps>> = ({product, onClick}) => {
     let priceNumber = product.price.toString().replace('.', ',');
-    // let pp = {{product.img} === '' ? '/img/notfoto.png' : {product.img}}
+
     return (
         <div className='product'>
             <div className='product_img'>
                 <img src={product.img} height='194px'/>
             </div>
              <div className='product_size'>
-                <img src="/img/box.png" alt=""/>
+                <img src="/public/img/box.png" alt=""/>
                 {product.size} {product.unit}
             </div>
             <div onClick={() => onClick(product)} className='product_name'>
@@ -35,7 +35,7 @@ const ProductItem: FC<PropsWithChildren<ProductItemProps>> = ({product, onClick}
             <div className='product_price'>
                 <div className='product_price_n'>{priceNumber} ₸</div>
                 <button>В корзину
-                    <img src="/img/basketbutton.png" alt=""/>
+                    <img src="/public/img/basketbutton.png" alt=""/>
                 </button>
             </div>
         </div>

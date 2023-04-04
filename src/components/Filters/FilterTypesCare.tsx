@@ -8,8 +8,6 @@ interface Filter{
     setFilter: (value:defaultFilterTypes) => void
 }
 
-// todo: сменить вид курсора
-
 const FilterTypesCare: FC<PropsWithChildren<Filter>> = ({filter,setFilter}) => {
     const [types, setTypes] = useState<string[]>([])
 

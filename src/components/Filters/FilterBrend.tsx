@@ -19,6 +19,10 @@ const FilterBrand = () => {
         setBrands(brands_)
     }
 
+    // todo: для фильтрации: взять все инпуты и проврить, отмечены ли они. Если у инпута есть свойство чекед,
+    //  то добавить его name в массив в defaultFilter.Запускать проверку по кнопке.
+    //  Каждый элемент массива из defaultFilter прогонять по производителям товара и при каждом совпадении, помещать товар в обновленный products_
+
     return (
         <div className="filter_manuf">
             <div className="filter_manuf_title">Производитель</div>
@@ -28,7 +32,7 @@ const FilterBrand = () => {
                        value={searchQuery}
                        onChange={e => setSearchQuery(e.target.value)}/>
                 <button>
-                    <img src="/img/search.png" alt=""/>
+                    <img src="/public/img/search.png" alt=""/>
                 </button>
             </div>
             <List

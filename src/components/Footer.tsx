@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="footer">
                 <div className="footer_style footer_info">
                     <div className="footer_info_logo">
-                        <img src="/img/logowhite.png" alt=""/>
+                        <img src="/public/img/logowhite.png" alt=""/>
                     </div>
                     <div className="footer_info_text">
                         Компания «Султан» — снабжаем розничные магазины товарами
@@ -18,7 +18,7 @@ const Footer = () => {
                         <div className="subscription_entry_field">
                             <input type="text" placeholder='Введите ваш E-mail'/>
                             <button>
-                                <img src="/img/pointer-arrow.png" alt=""/>
+                                <img src="/public/img/pointer-arrow.png" alt=""/>
                             </button>
                         </div>
                     </div>
@@ -41,7 +41,7 @@ const Footer = () => {
                 <div className="footer_style footer_price">
                     <div className="footer_title footer_price_title">Скачать прайс-лист:</div>
                     <button className="footer_price_button">Прайс-лист
-                        <img src="/img/download.png" alt=""/>
+                        <img src="/public/img/download.png" alt=""/>
                     </button>
                     <div className="footer_price_messenger">
                         <div className="messenger_title">Связь в мессенджерах:</div>
@@ -74,10 +74,10 @@ const Footer = () => {
                     </div>
                     <div className="footer_contact_card">
                         <div className="contact_visa">
-                            <img src="/img/Card visa.png" alt=""/>
+                            <img src="/public/img/Card visa.png" alt=""/>
                         </div>
                         <div className="contact_mastercard">
-                            <img src="/img/Card master.png" alt=""/>
+                            <img src="/public/img/Card master.png" alt=""/>
                         </div>
                     </div>
                 </div>

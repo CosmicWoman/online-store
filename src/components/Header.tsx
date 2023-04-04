@@ -9,7 +9,7 @@ const Header = () => {
             <div className="header_info">
                 <div className="header_info_address">
                     <div className="info_address">
-                        <img src="/img/pointer.png" alt=""/>
+                        <img src="/public/img/pointer.png" alt=""/>
                         <div className="info_address_text">
                             <div className='text_strong'>г. Кокчетав, ул. Ж. Ташенова 129Б</div>
                             <div>(Рынок Восточный)</div>
@@ -17,7 +17,7 @@ const Header = () => {
                     </div>
 
                     <div className="info_address_email">
-                        <img src="/img/email.png" alt=""/>
+                        <img src="/public/img/email.png" alt=""/>
                         <div className="info_address_email_text">
                             <div className='text_strong'>opt.sultan@mail.ru</div>
                             <div>На связи в любое время</div>
@@ -34,15 +34,15 @@ const Header = () => {
 
             <div className="header_menu">
                 <div className="header_menu_logo">
-                    <img src="/img/logoblack.png" alt=""/>
+                    <img src="/public/img/logoblack.png" alt=""/>
                 </div>
                 <button className="header_menu_catalog">Каталог
-                    <img src="/img/catalog.png" alt=""/>
+                    <img src="/public/img/catalog.png" alt=""/>
                 </button>
                 <div className="header_menu_search">
                     <input type="text" placeholder='Поиск...'/>
                     <button>
-                        <img src="/img/search.png" alt=""/>
+                        <img src="/public/img/search.png" alt=""/>
                     </button>
                 </div>
                 <div className="header_menu_contact">
@@ -58,20 +58,20 @@ const Header = () => {
                         </div>
                     </div>
                     <div className="contact_foto">
-                        <img src="/img/foto.png" alt=""/>
+                        <img src="/public/img/foto.png" alt=""/>
                     </div>
                 </div>
 
                 <div className="header_menu_price">
                     <button>Прайс-лист
-                        <img src="/img/download.png" alt=""/>
+                        <img src="/public/img/download.png" alt=""/>
                     </button>
                 </div>
                 <div className="header_menu_basket">
                     <div className="basket_button">
                         <div className="circle"></div>
                         <button>
-                            <img src="/img/basket.png" alt=""/>
+                            <img src="/public/img/basket.png" alt=""/>
                         </button>
                     </div>
                     <div className="basket">Корзина</div>

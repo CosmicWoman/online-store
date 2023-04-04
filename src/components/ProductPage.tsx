@@ -3,6 +3,7 @@ import {Product} from "../types/types";
 import {useNavigate, useParams} from "react-router-dom";
 import initProducts from "../product/products";
 import Typescare from "../typescare/typescare";
+import _ from 'lodash';
 
 const ProductPage: FC = () => {
     const [product, setProduct] = useState<Product | null>(null)
@@ -38,7 +39,7 @@ const ProductPage: FC = () => {
                     <div className="page_product_name_text">{product?.name}</div>
                 </div>
                 <div className='page_product_size'>
-                    <img src="/img/box.png" alt=""/>
+                    <img src="/public/img/box.png" alt=""/>
                     {product?.size} {product?.unit}
                 </div>
                 <div className='page_product_price'>
@@ -51,19 +52,19 @@ const ProductPage: FC = () => {
                     </div>
                     <button className='page_product_basket'>
                         В корзину
-                        <img src="/img/basketbutton.png" alt=""/>
+                        <img src="/public/img/basketbutton.png" alt=""/>
                     </button>
                 </div>
                 <div className='product_other'>
                     <button className='product_other_style product_other_share'>
-                        <img src="/img/link.png" alt=""/>
+                        <img src="/public/img/link.png" alt=""/>
                     </button>
                     <div className='product_other_style product_other_info'>
                         <div>При покупке от <b>10 000 ₸</b> бесплатная доставка по Кокчетаву и области</div>
                     </div>
                     <button className='product_other_style product_other_price'>
                         Прайс-лист
-                        <img src="/img/downoladBlack.png" alt=""/>
+                        <img src="/public/img/downoladBlack.png" alt=""/>
                     </button>
                 </div>
                 <div className='product_info'>
@@ -94,7 +95,7 @@ const ProductPage: FC = () => {
                         </div>
                         <div className="specif_character">
                             <div className="specif_character_title">Назначение:</div>
-                            {Typescare[product?.type]}
+                            {product ? _.get(Typescare, product.type) : ''}
                         </div>
                         <div className="specif_character">
                             <div className="specif_character_title">Тип:</div>

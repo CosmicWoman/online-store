@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useRef, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {defaultFilterTypes, Product} from "../types/types";
 import {useNavigate} from "react-router-dom";
 import List from "./List";
@@ -10,6 +10,7 @@ import Pagination from "./Pagination";
 import FilterPrice from "./Filters/FilterPrice";
 import FilterBrand from "./Filters/FilterBrend";
 import FilterTypesCare from "./Filters/FilterTypesCare";
+import _ from 'lodash';
 
 const defaultFilter = {
     'price': {
@@ -34,9 +35,9 @@ const ProductList: FC = () => {
     }, [sortValue, page, filter])
 
     async function fetchProducts() {
-        let products_ = [...initProducts];
+        let products_:Product[] = [...initProducts];
 
-        // todo:это фильтрация
+        // это фильтрация
         console.log(filter)
 
         if (filter.type) {
@@ -47,13 +48,13 @@ const ProductList: FC = () => {
 
         // это сортировка
         let isReverse = sortValue.includes('-');
-        let value = sortValue.replace('-', '');
+        let value: any = sortValue.replace('-', '');
         products_ = products_.sort(
             (a, b) => {
-                if (typeof a[value] === 'string') {
-                    return a[value].localeCompare(b[value])
+                if (typeof _.get(a, value) === 'string') {
+                    return _.get(a, value).localeCompare(_.get(b, value))
                 }
-                return (a[value] - b[value])
+                return (_.get(a, value) - _.get(b, value))
             }
         )
         if (isReverse) {
@@ -111,7 +112,7 @@ const ProductList: FC = () => {
                     <div className="filter_buttons">
                         <button className="button_show">Показать</button>
                         <button className="button_delete">
-                            <img src="/img/delete.png" alt=""/>
+                            <img src="/public/img/delete.png" alt=""/>
                         </button>
                     </div>
                     <FilterTypesCare

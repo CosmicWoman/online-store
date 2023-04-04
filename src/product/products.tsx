@@ -1,13 +1,11 @@
 import React from 'react';
 import {Product} from "../types/types";
 
-// todo: product['type'].map(value_eng => TypeConst[value_eng])
-
 const initProducts: Product[] = [
     {
         "id": 0,
         "name": "Автoмат Гель СМС жидкое в растворимых капсулах Liquid Capsules Горный родник",
-        "img": "/img/ariel.png",
+        "img": "/public/img/ariel.png",
         "unit": "г",
         "size": "15X28.8",
         "barcode": 4604049097548,
@@ -20,7 +18,7 @@ const initProducts: Product[] = [
     {
         "id": 1,
         "name": "Порошок стиральный Автомат 100 пятен COMPACT",
-        "img": "/img/biomax.png",
+        "img": "/public/img/biomax.png",
         "unit": "г",
         "size": 1500,
         "barcode": 4604049097548,
@@ -33,7 +31,7 @@ const initProducts: Product[] = [
     {
         "id": 2,
         "name": "Средство для мытья посуды Crystal",
-        "img": "/img/aos.png",
+        "img": "/public/img/aos.png",
         "unit": "мл",
         "size": 450,
         "barcode": 4604049097548,
@@ -46,7 +44,7 @@ const initProducts: Product[] = [
     {
         "id": 3,
         "name": "Ср-во для мытья посуды Апельсин+мята",
-        "img": "/img/sorti.png",
+        "img": "/public/img/sorti.png",
         "unit": "мл",
         "size": 450,
         "barcode": 4604049097548,
@@ -59,7 +57,7 @@ const initProducts: Product[] = [
     {
         "id": 4,
         "name": "BIO-SOAP Экологичное туалетное мыло. Литсея и бергамот",
-        "img": "/img/soup.png",
+        "img": "/public/img/soup.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -72,7 +70,7 @@ const initProducts: Product[] = [
     {
         "id": 5,
         "name": "BIO-SOAP Экологичное туалетное мыло. Литсея и бергамот",
-        "img": "/img/soup.png",
+        "img": "/public/img/soup.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -85,7 +83,7 @@ const initProducts: Product[] = [
     {
         "id": 6,
         "name": "Экологичное туалетное мыло",
-        "img": "/img/notfoto.png",
+        "img": "/public/img/notfoto.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -98,7 +96,7 @@ const initProducts: Product[] = [
     {
         "id": 7,
         "name": "BIO-SOAP Экологичное туалетное мыло. Литсея и бергамот",
-        "img": "/img/soup.png",
+        "img": "/public/img/soup.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -111,7 +109,7 @@ const initProducts: Product[] = [
     {
         "id": 8,
         "name": "Экологичное туалетное мыло",
-        "img": "/img/soup.png",
+        "img": "/public/img/soup.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -124,7 +122,7 @@ const initProducts: Product[] = [
     {
         "id": 9,
         "name": "BIO-SOAP Экологичное туалетное мыло. Литсея и бергамот",
-        "img": "/img/soup.png",
+        "img": "/public/img/soup.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -137,7 +135,7 @@ const initProducts: Product[] = [
     {
         "id": 10,
         "name": "Экологичное туалетное мыло. Литсея и бергамот",
-        "img": "/img/soup.png",
+        "img": "/public/img/soup.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -150,7 +148,7 @@ const initProducts: Product[] = [
     {
         "id": 11,
         "name": "Экологичное туалетное мыло. Литсея и бергамот",
-        "img": "/img/notfoto.png",
+        "img": "/public/img/notfoto.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -163,7 +161,7 @@ const initProducts: Product[] = [
     {
         "id": 12,
         "name": "Экологичное туалетное мыло. Литсея и бергамот",
-        "img": "/img/notfoto.png",
+        "img": "/public/img/notfoto.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -176,7 +174,7 @@ const initProducts: Product[] = [
     {
         "id": 13,
         "name": "Экологичное туалетное мыло. Литсея и бергамот",
-        "img": "/img/notfoto.png",
+        "img": "/public/img/notfoto.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -189,7 +187,7 @@ const initProducts: Product[] = [
     {
         "id": 14,
         "name": "Экологичное туалетное мыло",
-        "img": "/img/soup.png",
+        "img": "/public/img/soup.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -202,7 +200,7 @@ const initProducts: Product[] = [
     {
         "id": 15,
         "name": "Экологичное туалетное мыло. Литсея и бергамот",
-        "img": "/img/soup.png",
+        "img": "/public/img/soup.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -215,7 +213,7 @@ const initProducts: Product[] = [
     {
         "id": 16,
         "name": "Экологичное туалетное мыло. Литсея и бергамот",
-        "img": "/img/soup.png",
+        "img": "/public/img/soup.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
@@ -228,7 +226,7 @@ const initProducts: Product[] = [
     {
         "id": 17,
         "name": "Экологичное туалетное мыло. Литсея и бергамот",
-        "img": "/img/soup.png",
+        "img": "/public/img/soup.png",
         "unit": "г",
         "size": 90,
         "barcode": 4604049097548,
