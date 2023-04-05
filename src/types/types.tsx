@@ -16,6 +16,11 @@ export interface TypesCare {
     [key:string]: string;
 }
 
+export interface TypesPrice {
+    min: number,
+    max: number
+}
+
 export interface defaultFilterTypes {
     price: {
         min: number,

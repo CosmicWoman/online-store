@@ -11,7 +11,6 @@ const Catalog = () => {
                     <Route path={'/catalog'} element={<ProductList/>}/>
                     <Route path={'/catalog/:id'} element={<ProductPage/>}/>
                     <Route path={'*'} element={<ProductList/>}/>
-                    {/*<Route path={'*'} element={<Navigate to='/catalog'/>}/>*/}
                 </Routes>
             </BrowserRouter>
     )

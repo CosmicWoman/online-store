@@ -11,7 +11,6 @@ interface Filter{
 const FilterTypesCare: FC<PropsWithChildren<Filter>> = ({filter,setFilter}) => {
     const [types, setTypes] = useState<string[]>([])
 
-
     useEffect(() => {
         fetchTypes()
     }, [])

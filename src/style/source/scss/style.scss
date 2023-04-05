@@ -81,7 +81,7 @@
       .catalog_types{
         .products{
           display: flex;
-          span{
+          span {
             min-width: 100px;
             max-width: 120px;
             height: 70px;
@@ -94,6 +94,9 @@
             margin: 25px 11px 50px 0;
             box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.04);
             border-radius: 10px;
+          }
+          span:active:hover {
+            background: rgba(255, 200, 94, 0.5);
           }
         }
       }

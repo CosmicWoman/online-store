@@ -1,8 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {FC, PropsWithChildren, useEffect, useState} from 'react';
 import List from "../List";
 import initProducts from "../../product/products";
 
-const FilterBrand = () => {
+interface FilterBrandProps {
+    selectBrands: string[],
+    setSelectBrands: (selectBrands: string[]) => void
+}
+
+const FilterBrand: FC<PropsWithChildren<FilterBrandProps>> = ({selectBrands, setSelectBrands}) => {
     const [searchQuery, setSearchQuery] = useState('')
     const [brands, setBrands] = useState<string[]>([])
 
@@ -19,9 +24,13 @@ const FilterBrand = () => {
         setBrands(brands_)
     }
 
-    // todo: для фильтрации: взять все инпуты и проврить, отмечены ли они. Если у инпута есть свойство чекед,
-    //  то добавить его name в массив в defaultFilter.Запускать проверку по кнопке.
-    //  Каждый элемент массива из defaultFilter прогонять по производителям товара и при каждом совпадении, помещать товар в обновленный products_
+    function onClickBrand(brand:string) {
+        if (selectBrands.includes(brand)){
+            setSelectBrands(selectBrands.filter(selectBrands => !selectBrands.includes(brand)))
+        } else {
+            setSelectBrands([...selectBrands, brand])
+        }
+    }
 
     return (
         <div className="filter_manuf">
@@ -42,6 +51,8 @@ const FilterBrand = () => {
                         <input
                             type='checkbox'
                             name={brand}
+                            checked={selectBrands.includes(brand)}
+                            onClick={() => onClickBrand(brand)}
                         />
                         <label>{brand}</label>
                     </div>

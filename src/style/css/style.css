@@ -191,6 +191,9 @@ h1, h2, h3, h4, h5, h6 {
           box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.04);
   border-radius: 10px;
 }
+.product_list .catalog .catalog_header .catalog_types .products span:active:hover {
+  background: rgba(255, 200, 94, 0.5);
+}
 .product_list .catalog .catalog_content {
   display: -webkit-box;
   display: -ms-flexbox;

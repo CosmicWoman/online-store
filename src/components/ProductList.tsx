@@ -1,5 +1,5 @@
 import React, {FC, useEffect, useState} from 'react';
-import {defaultFilterTypes, Product} from "../types/types";
+import {defaultFilterTypes, Product, TypesPrice} from "../types/types";
 import {useNavigate} from "react-router-dom";
 import List from "./List";
 import ProductItem from "./ProductItem";
@@ -28,6 +28,8 @@ const ProductList: FC = () => {
     const [page, setPage] = useState(1);
     const [pages, setPages] = useState(0);
     const [filter, setFilter] = useState<defaultFilterTypes>(defaultFilter);
+    const [selectBrands, setSelectBrands] = useState<string[]>([]);
+    const [selectPrice, setSelectPrice] = useState<TypesPrice>({min: 0, max: 0})
     const pageSize = 15;
 
     useEffect(() => {
@@ -37,11 +39,19 @@ const ProductList: FC = () => {
     async function fetchProducts() {
         let products_:Product[] = [...initProducts];
 
-        // это фильтрация
-        console.log(filter)
-
+        // это фильтрация по типам
         if (filter.type) {
             products_ = products_.filter(product => product.type.includes(filter.type))
+        }
+
+        //это фильтрация  по ценам
+        if (filter.price.min !== 0 || filter.price.max !== 0){
+            products_ = products_.filter((product) => (filter.price.min <= product.price && product.price <= filter.price.max))
+        }
+
+        //это фильтрация по брендам
+        if (filter.manufacturer.length) {
+            products_ = products_.filter((product) => filter.manufacturer.includes(product.manufacturer))
         }
 
         let pages_ = Math.ceil(products_.length / pageSize)
@@ -107,11 +117,24 @@ const ProductList: FC = () => {
             <div className="catalog_content">
                 <div className="filter">
                     <div className="catalog_filter_title">подбор по параметрам</div>
-                    <FilterPrice/>
-                    <FilterBrand/>
+                    <FilterPrice
+                        selectPrice={selectPrice}
+                        setSelectPrice={setSelectPrice}
+                    />
+                    <FilterBrand
+                        selectBrands={selectBrands}
+                        setSelectBrands={setSelectBrands}
+                    />
                     <div className="filter_buttons">
-                        <button className="button_show">Показать</button>
-                        <button className="button_delete">
+                        <button
+                            className="button_show"
+                            onClick={() => setFilter({...filter, manufacturer: selectBrands, price: selectPrice})}
+                        >Показать</button>
+                        <button
+                            className="button_delete"
+                            // onClick={() => {setSelectPrice({min: 0, max: 0}), setSelectBrands([])}}
+                            onClick={() => {setFilter({...filter, manufacturer:[], price: {min: 0, max: 0}}), setSelectBrands([]), setSelectPrice({min: 0, max: 0})}}
+                        >
                             <img src="/public/img/delete.png" alt=""/>
                         </button>
                     </div>
