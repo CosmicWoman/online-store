@@ -281,12 +281,12 @@
                   line-height: 130%;
                   margin-right: 5px;
                   float: left;
-                  margin-top: -3px;
                 }
               }
               .product_price{
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
                 .product_price_n{
                   margin-right: 40px;
                   font-weight: 800;
@@ -307,6 +307,25 @@
 
                   background: #FFC85E;
                   border-radius: 80px;
+                  margin-right: 20px;
+                }
+                .counter{
+                  display: flex;
+                  align-items: center;
+                  height: 32px;
+                  .counter_result{
+                    font-weight: 500;
+                    font-size: 14px;
+                    width: 25px;
+                  }
+                  .counter_minus, .counter_plus{
+                    width: 34px;
+                    height: 23px;
+                    background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
+                    border-radius: 1000px;
+
+                    text-align: center;
+                  }
                 }
               }
             }
@@ -374,18 +393,22 @@
           font-size: 12px;
           color: #3F4E65;
           margin: 0 38px 0 40px;
-          span{
-            font-weight: 500;
-            font-size: 14px;
-            margin: 0 21px 0 17px;
-          }
-          button{
-            width: 34px;
-            height: 23px;
-            background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
-            border-radius: 1000px;
+          .counter{
+            display: flex;
+            align-items: center;
+            .counter_result{
+              font-weight: 500;
+              font-size: 14px;
+              margin: 0 21px 0 17px;
+            }
+            .counter_minus, .counter_plus{
+              width: 34px;
+              height: 23px;
+              background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
+              border-radius: 1000px;
 
-            text-align: center;
+              text-align: center;
+            }
           }
         }
         .page_product_basket{

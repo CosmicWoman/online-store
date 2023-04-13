@@ -1,5 +1,6 @@
 import React from 'react';
 import '../style/css/style.css';
+import {Product} from "../types/fieldTypes";
 
 interface ListProps<T> {
     items: T[];

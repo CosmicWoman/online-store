@@ -1,14 +1,15 @@
 import React, {FC, useEffect, useState} from 'react';
-import {Product} from "../types/types";
-import {useNavigate, useParams} from "react-router-dom";
-import initProducts from "../product/products";
+import {Product} from "../types/fieldTypes";
+import {useParams} from "react-router-dom";
+import initProducts from "../product/productsjson";
 import Typescare from "../typescare/typescare";
 import _ from 'lodash';
+import MyCounter from "../MyComponents/MyCounter";
 
 const ProductPage: FC = () => {
     const [product, setProduct] = useState<Product | null>(null)
     const params = useParams()
-    const navigate = useNavigate();
+    const [count, setCount] = useState(1)
 
     useEffect(() => {
         fetchProduct()
@@ -29,7 +30,7 @@ const ProductPage: FC = () => {
     let priceNumber = product?.price.toString().replace('.', ',');
 
     return (
-        <div className='page_product'>
+        <div className='page_product' data-testid='product-page'>
             <div className='page_product_img'>
                 <img src={product?.img} alt="тут должен быть вид товара"/>
             </div>
@@ -46,10 +47,9 @@ const ProductPage: FC = () => {
                     <div>{priceNumber} ₸</div>
 
                     <div className='price_counter'>
-                        <button className="price_counter_minus">-</button>
-                        <span>1</span>
-                        <button className="price_counter_plus">+</button>
+                        <MyCounter/>
                     </div>
+
                     <button className='page_product_basket'>
                         В корзину
                         <img src="/public/img/basketbutton.png" alt=""/>

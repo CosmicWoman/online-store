@@ -1,9 +1,9 @@
 import React, {FC, useEffect, useState} from 'react';
-import {defaultFilterTypes, Product, TypesPrice} from "../types/types";
+import {defaultFilterTypes, Product, TypesPrice} from "../types/fieldTypes";
 import {useNavigate} from "react-router-dom";
 import List from "./List";
-import ProductItem from "./ProductItem";
-import initProducts from "../product/products";
+import ProductCard from "./ProductCard";
+import initProducts from "../product/productsjson";
 import MySelect from "../MyComponents/MySelect";
 import '../style/css/style.css';
 import Pagination from "./Pagination";
@@ -80,7 +80,7 @@ const ProductList: FC = () => {
     }
 
     return (
-        <div className='catalog'>
+        <div data-testid='catalog' className='catalog' >
             <div className="catalog_header">
                 <div className="navigation_bar">
                     <div className="navigation_home">Главная</div>
@@ -93,7 +93,7 @@ const ProductList: FC = () => {
                     </div>
                     <div className="sorting">
                         <div className="sorting_title">Сортировка:</div>
-                        <div className="sorting_sort">
+                        <div className="sorting_sort" data-testid='filter-sort'>
                             <MySelect
                                 options={[
                                     {value: 'name', name: 'Сортировка А-Я'},
@@ -127,12 +127,12 @@ const ProductList: FC = () => {
                     />
                     <div className="filter_buttons">
                         <button
+                            data-testid='send'
                             className="button_show"
                             onClick={() => setFilter({...filter, manufacturer: selectBrands, price: selectPrice})}
                         >Показать</button>
                         <button
                             className="button_delete"
-                            // onClick={() => {setSelectPrice({min: 0, max: 0}), setSelectBrands([])}}
                             onClick={() => {setFilter({...filter, manufacturer:[], price: {min: 0, max: 0}}), setSelectBrands([]), setSelectPrice({min: 0, max: 0})}}
                         >
                             <img src="/public/img/delete.png" alt=""/>
@@ -148,7 +148,7 @@ const ProductList: FC = () => {
                         <List
                             items={products}
                             renderItem={(product: Product) =>
-                                <ProductItem
+                                <ProductCard
                                     onClick={(product) => navigate('/catalog/' + product.id)}
                                     product={product}
                                     key={product.id}

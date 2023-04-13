@@ -1,5 +1,5 @@
 import React from 'react';
-import {TypesCare} from "../types/types";
+import {TypesCare} from "../types/fieldTypes";
 
 const Typescare: TypesCare =
     {

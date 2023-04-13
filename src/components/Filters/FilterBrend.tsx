@@ -1,6 +1,6 @@
 import React, {FC, PropsWithChildren, useEffect, useState} from 'react';
 import List from "../List";
-import initProducts from "../../product/products";
+import initProducts from "../../product/productsjson";
 
 interface FilterBrandProps {
     selectBrands: string[],
@@ -10,7 +10,6 @@ interface FilterBrandProps {
 const FilterBrand: FC<PropsWithChildren<FilterBrandProps>> = ({selectBrands, setSelectBrands}) => {
     const [searchQuery, setSearchQuery] = useState('')
     const [brands, setBrands] = useState<string[]>([])
-
 
     useEffect(() => {
         fetchBrands()
@@ -24,9 +23,9 @@ const FilterBrand: FC<PropsWithChildren<FilterBrandProps>> = ({selectBrands, set
         setBrands(brands_)
     }
 
-    function onClickBrand(brand:string) {
-        if (selectBrands.includes(brand)){
-            setSelectBrands(selectBrands.filter(selectBrands => !selectBrands.includes(brand)))
+    function onClickBrand(brand: string) {
+        if (selectBrands.includes(brand)) {
+            setSelectBrands(selectBrands.filter(selectBrand => selectBrand !== brand))
         } else {
             setSelectBrands([...selectBrands, brand])
         }
@@ -36,23 +35,29 @@ const FilterBrand: FC<PropsWithChildren<FilterBrandProps>> = ({selectBrands, set
         <div className="filter_manuf">
             <div className="filter_manuf_title">Производитель</div>
             <div className="filter_manuf_search">
-                <input type="text"
-                       placeholder='Поиск...'
-                       value={searchQuery}
-                       onChange={e => setSearchQuery(e.target.value)}/>
-                <button>
+                <input
+                    data-testid='input'
+                    type="text"
+                    placeholder='Поиск...'
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}/>
+                <button data-testing='toggle-dtn'>
                     <img src="/public/img/search.png" alt=""/>
                 </button>
             </div>
             <List
                 items={brands}
                 renderItem={(brand: string) =>
-                    <div className='filter_manuf_checkbox'>
+                    <div
+                        data-testid='brands'
+                        className='filter_manuf_checkbox'
+                        key={brand}
+                    >
                         <input
                             type='checkbox'
                             name={brand}
                             checked={selectBrands.includes(brand)}
-                            onClick={() => onClickBrand(brand)}
+                            onChange={() => onClickBrand(brand)}
                         />
                         <label>{brand}</label>
                     </div>

@@ -1,17 +1,13 @@
 import React from 'react';
-import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import ProductList from "../components/ProductList";
-import ProductPage from "../components/ProductPage";
+import {BrowserRouter} from "react-router-dom";
+
 import '../style/css/style.css';
+import CatalogRouter from "../routes/CatalogRouter";
 
 const Catalog = () => {
     return (
             <BrowserRouter>
-                <Routes>
-                    <Route path={'/catalog'} element={<ProductList/>}/>
-                    <Route path={'/catalog/:id'} element={<ProductPage/>}/>
-                    <Route path={'*'} element={<ProductList/>}/>
-                </Routes>
+                <CatalogRouter/>
             </BrowserRouter>
     )
 };

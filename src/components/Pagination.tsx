@@ -24,7 +24,7 @@ const Pagination: FC<PropsWithChildren<PaginationProps>> = ({amountPages, page, 
                 className="page_back"
             ></button>
             {pageArray.map(p =>
-                <span
+                <span data-testid='page'
                     onClick={() => changePage(p)}
                     key={p}
                     className={page === p ? 'page page_current' : 'page'}

@@ -1,7 +1,7 @@
 import React, {FC, PropsWithChildren, useEffect, useState} from 'react';
 import List from "../List";
 import Typescare from "../../typescare/typescare";
-import {defaultFilterTypes} from "../../types/types";
+import {defaultFilterTypes} from "../../types/fieldTypes";
 
 interface Filter{
     filter: defaultFilterTypes;
@@ -25,6 +25,7 @@ const FilterTypesCare: FC<PropsWithChildren<Filter>> = ({filter,setFilter}) => {
             items={types}
             renderItem={(typekey: string) =>
                     <span
+                        data-testid='filter-types'
                         onClick={() => setFilter({...filter, type: typekey})}
                         key={typekey}
                         style={{cursor:'pointer'}}
